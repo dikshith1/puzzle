@@ -29,6 +29,21 @@
     </mat-select>
   </mat-form-field>
 
+  <mat-form-field>
+    <mat-label>From time period</mat-label>
+    <input matInput [matDatepicker]="fromDate" [max]="maxDate" formControlName="fromDate" placeholder="choose from date">
+    <mat-datepicker-toggle matSuffix [for]="fromDate"></mat-datepicker-toggle>
+    <mat-datepicker #fromDate></mat-datepicker>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>To time period</mat-label>
+    <input matInput [matDatepicker]="toDate" [max]="maxDate" formControlName="toDate"
+      (dateChange)="onToDateChange('change', $event)" placeholder="Choose to date">
+    <mat-datepicker-toggle matSuffix [for]="toDate"></mat-datepicker-toggle>
+    <mat-datepicker #toDate></mat-datepicker>
+  </mat-form-field>
+
   <button (click)="fetchQuote()" mat-raised-button>Go</button>
 </form>
 
